@@ -35,7 +35,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   table_calendar: ^3.0.9  # O la versión más reciente
-
+  just_audio: ^0.9.36
+  audio_service: ^0.18.12
+  provider: ^6.0.5 # Para manejar el estado del reproductor
+  file_picker: ^8.0.0
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
