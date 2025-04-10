@@ -9,7 +9,7 @@ class HorarioPage extends StatefulWidget {
 }
 
 class _HorarioPageState extends State<HorarioPage> {
-  CalendarFormat _calendarFormat = CalendarFormat.month;
+  final CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _selectedDay = DateTime.now();
   final Map<DateTime, List<String>> _events = {};
   final TextEditingController _eventController = TextEditingController();
