@@ -11,12 +11,18 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  table_calendar: ^3.0.9
+  flutter_localizations:
+    sdk: flutter
+  table_calendar: ^3.0.91
   just_audio: ^0.9.36
   audio_service: ^0.18.12
   provider: ^6.0.5
   file_picker: ^10.0.0
   http: ^1.3.0
+  google_fonts: ^4.0.4
+  flutter_svg: ^2.0.10
+  url_launcher: ^6.1.7
+
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +34,14 @@ flutter:
 
   assets:
     - assets/background.png
+    - assets/logo.png
+    # Agrega aquí otros assets que vayas a usar, por ejemplo:
+    # - assets/playlist1.png
+    # - assets/playlist2.png
+
+  fonts:
+    - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora-VariableFont_wght.ttf
+        - asset: assets/fonts/Lora-Italic-VariableFont_wght.ttf
+          style: italic

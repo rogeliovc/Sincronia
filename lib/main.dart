@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'dart:async';
 import 'screens/home_page.dart';
+import 'main_scaffold.dart';
+
+import 'services/tidal_api_service.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,58 +15,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Instanciamos el servicio aquí para pasarlo a LoginPage
+    final tidalService = TidalApiService();
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('es', 'ES'),
+        Locale('en', 'US'),
+      ],
       debugShowCheckedModeBanner: false,
       title: 'Sincronía',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.blueGrey[50],
-      ),
-      home: const SplashScreen(),
-    );
-  }
-}
-
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomePage()),
-      );
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/background.png'),
-            fit: BoxFit.cover,
-          ),
+        fontFamily: 'Lora',
+        primaryColor: const Color(0xFF02395D),
+        scaffoldBackgroundColor: const Color(0xFF02395D),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF02395D),
+          elevation: 0,
+          centerTitle: true,
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Puedes agregar un logo o cualquier widget aquí si lo deseas
-              // Image.asset('assets/logo.png', width: 200, height: 200),
-            ],
-          ),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(fontFamily: 'Lora', fontWeight: FontWeight.bold, color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
         ),
       ),
+      home: MainScaffold(),
     );
   }
 }
